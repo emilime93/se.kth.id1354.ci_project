@@ -1,0 +1,649 @@
+/************************************
+                GENERAL
+*************************************/
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input {
+    box-shadow: 0;
+    border: 1px solid grey;
+    border-radius: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+#wrapper {
+    min-height: 100%;
+    margin-bottom: -30px;
+}
+
+#wrapper::after {
+    content: "";
+    display: block;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
+    font-weight: lighter;
+    color: #AEB6BF;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+p {
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.75;
+}
+
+ol,
+ul {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.75;
+}
+
+
+
+/************************************
+                HEADER
+*************************************/
+
+header {
+    min-height: 100px;
+}
+
+header h1 {
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+    font-weight: lighter;
+    display: block;
+    margin: 0;
+}
+
+.header-content {
+    padding: 2%;
+}
+
+#logo {
+    text-align: left;
+    display: inline-block;
+    font-size: 0.6em;
+}
+
+/*
+    USER AREA
+*/
+
+.user-area {
+    color: white;
+    display: block;
+    text-align: right;
+}
+
+.user-area p {
+    margin: 0;
+    display: inline-block;
+    margin-right: 5%;
+}
+
+#login-button {
+}
+
+
+/************************************
+            NAVIGATION
+*************************************/
+
+
+nav {
+    height: 40px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav a,
+nav a:visited {
+    display: block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+    width: calc(100%/3);
+    height: 40px;
+    line-height: 40px;
+}
+
+nav ul ul li {
+    position: relative;
+    width: 100%;
+    display: none;
+}
+
+nav ul li:hover ul li {
+    display: block;
+}
+
+/************************************
+                MAIN
+*************************************/
+
+main {
+    padding: 3%;
+}
+
+/************************************
+                FOOTER
+*************************************/
+/*.pusher,*/
+#wrapper::after,
+footer {
+    height: 30px;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    font-family: 'Open Sans', monospace;
+}
+
+
+/************************************************************************
+                                    HOME
+*************************************************************************/
+
+.home-article:first-of-type {
+    margin-top: 0px;
+}
+
+.home-article {
+    border-bottom: 3px solid grey;
+    margin-top: 25px;
+}
+
+.home-article:last-of-type {
+    border: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.home-article img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+/***********************************************************************
+                            LOGIN/REGISTER
+***********************************************************************/
+
+.login-area {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.login-form {
+    font-family: 'Open Sans', sans-serif;
+    /*display: block;*/
+}
+
+.login-form input,
+.login-form label {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.login-form input {
+    padding: 6px;
+}
+
+.login-form #submit-login {
+    margin-top: 20px;
+    border: 0;
+}
+
+/***********************************************************************
+                            CALENDAR
+***********************************************************************/
+
+
+.label {
+    text-align: center;
+    display: block;
+    float: left;
+    overflow: hidden;
+    background: white;
+    border-radius: 100%;
+    width: calc(100%/7);
+}
+
+.fotd-meatballs {
+    background: url('../img/meatballs.jpg');
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    color: white;
+}
+
+.fotd-pancakes {
+    background: url('../img/pancakes.jpg');
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    color: white;
+}
+
+.day {
+    display: block;
+    float: left;
+    width: calc(100%/7);
+    height: 10vh;
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 5px;
+    background-size: contain;
+}
+
+.calendar .calendar-img {
+    width: 100%;
+    border-radius: 0;
+}
+
+/***********************************************************************
+                            RECIPE PAGES
+***********************************************************************/
+
+.ingredients ul {
+    background: rgb(251, 246, 220);
+    border-radius: 15px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.ingredients ul li {
+    padding-left: 15px;
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+.ingredients ul li:last-of-type {
+    border-bottom: none;
+}
+
+/*
+    Comments
+*/
+
+.comments {
+    display: inline-block;
+    width: 100%;
+    border-top: 3px solid rgb(189, 189, 189);
+}
+
+.comment {
+    width: 100%;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-bottom: 10px;
+}
+
+.comment:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.profile-pic {
+    width: 10%;
+    border-radius: 100%;
+    float: left;
+    margin-right: 15px;
+}
+
+.user-name {
+    float: left;
+    font-weight: bold;
+    line-height: 32px;
+}
+
+#comment-text-area {
+    width: 100%;
+    height: 5em;
+}
+
+#comment-submit {
+    margin: 10px 0;
+    font-size: 1.25em;
+}
+
+.delete-comment {
+    margin: 10px;
+    float: right;
+}
+/*******************************
+        CLEARFIX
+********************************/
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*******************************
+        MEDIA QUERIES
+********************************/
+
+/*************
+    TABLET
+*************/
+@media screen and (min-width: 768px) {
+
+    /***
+        Header
+    ***/
+
+    .header-content {
+        padding: 2% 0;
+        margin: 0 auto;
+    }
+
+    /*TODO LOGIN HERE*/
+
+    /***
+        Navigation
+    ***/
+
+    nav {
+        height: 60px;
+    }
+
+    nav ul {
+        width: 80%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    nav ul li {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    nav ul ul {
+        width: 100%;
+    }
+
+    /*
+        General
+    */
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    ol,
+    ul {
+        font-size: 1em;
+    }
+
+    /***
+        Home
+    ***/
+
+    main {
+        padding: 15px 0 0;
+        width: 80%;
+        margin: 0 auto;
+        max-width: 900px;
+    }
+
+    main:last-of-type {
+        margin-bottom: 50px;
+    }
+
+    /***
+        Recipe
+    ***/
+
+
+}
+
+/*************
+    DESKTOP
+*************/
+
+@media screen and (min-width: 1024px) {
+
+    /***
+        Header
+    ***/
+
+    .header-content {
+        width: 70%;
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        font-size: 4.5em;
+    }
+
+    #login-button {
+        font-size: 1.25em;
+    }
+
+    /*TODO LOGIN HERE*/
+
+    /***
+        Navigation
+    ***/
+
+    nav ul {
+        width: 70%;
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+
+    nav ul li {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    #logo {
+        padding: 15px 0;
+    }
+
+    /***
+        Home
+    ***/
+
+    main {
+        width: 70%;
+        margin: 0 auto;
+        max-width: 1080px;
+    }
+
+    main h1 {
+        font-size: 3em;
+    }
+
+    main h2 {
+        font-size: 2em;
+    }
+
+    main p {
+        font-size: 1em;
+    }
+
+    main ol,
+    main ul {
+        font-size: 1em;
+    }
+
+    main:last-of-type {
+        margin-bottom: 50px;
+    }
+
+    /***
+        Recipe
+    ***/
+
+    .recipe-img {
+        padding: 5px;
+        display: inline-block;
+        float: right;
+        width: 50%;
+        margin: 50px -4px 0 0;
+    }
+
+    .ingredients {
+        padding: 5px;
+        display: inline-block;
+        width: 49%;
+    }
+
+    /*
+        Login
+    */
+
+    .login-area {
+        margin-top: 50px;
+    }
+
+
+}
+
+/************************************
+                COLORS
+*************************************/
+
+header {
+    background: #d83e3e;
+    background: url('../img/nice-looking-food.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+nav {
+    background-color: #99c26e;
+}
+
+header h1 {
+    color: #e25656;
+    text-shadow: 2px 2px 2px #fff, -2px -2px 2px #fff;
+}
+
+#login-button,
+.delete-comment  {
+    background: #e25656;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.login-form #submit-login,
+#comment-submit {
+    color: white;
+    background: #99c26e;
+    border: 1px solid #344E41;
+    border-radius: 4px;
+}
+
+h2 {
+    color: #e25656;
+}
+
+footer {
+    color: #344E41;
+    background: #99c26e;
+}
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #e25656;
+}
+
+.home-article a:hover {
+    color: #F8C471;
+    text-decoration: underline;
+}
+
+nav a,
+nav a:link,
+nav a:visited {
+    color: #344E41;
+}
+
+nav a:hover {
+    background: #69953a;
+    color: white;
+}
+
+nav ul li {
+    background: #99c26e;
+}
+
+nav #active {
+    font-weight: bold;
+    border-bottom: 3px solid #e25656;
+}
+
+.desktop-navigation {
+    background: #e25656;
+}
+
+.required {
+    color: red;
+}
+
+.registration-complete {
+    color: green;
+}
