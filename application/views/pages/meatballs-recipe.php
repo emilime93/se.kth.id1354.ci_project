@@ -1,7 +1,7 @@
 <article class="main-article">
 
     <h2>Meatballs</h2>
-    <img src="img/meatballs.jpg" alt="A serving suggestion for the meatballs recipe"
+    <img src="<?php echo asset_url();?>img/meatballs.jpg" alt="A serving suggestion for the meatballs recipe"
          class="recipe-img">
 
     <div class="ingredients">

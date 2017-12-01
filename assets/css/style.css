@@ -219,23 +219,23 @@ footer p {
     margin: 0 auto;
 }
 
-.login-form {
+.login-area {
     font-family: 'Open Sans', sans-serif;
-    /*display: block;*/
+    display: block;
 }
 
-.login-form input,
-.login-form label {
+.login-area input,
+.login-area label {
     display: block;
     width: 100%;
     margin: 10px 0;
 }
 
-.login-form input {
+.login-area input {
     padding: 6px;
 }
 
-.login-form #submit-login {
+.login-area #submit-login {
     margin-top: 20px;
     border: 0;
 }
@@ -642,10 +642,12 @@ nav #active {
     background: #e25656;
 }
 
-.required {
+.required,
+error {
     color: red;
 }
 
-.registration-complete {
+.registration-complete,
+success {
     color: green;
 }

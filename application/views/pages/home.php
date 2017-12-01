@@ -4,9 +4,9 @@
         <em>New feature!</em> We added a calendar where you can see
         the the food of the week or something! I'll have to write
         something better here.
-        <a href="calendar.php">Check it out here</a> or click <em>calendar</em> in the menu!
+        <a href="<?php base_url();?>/calendar">Check it out here</a> or click <em>calendar</em> in the menu!
     </p>
-    <img src="img/calendar.png" alt="A icon of a calendar to provide easy context">
+    <img src="<?php echo asset_url();?>img/calendar.png" alt="A icon of a calendar to provide easy context">
 
 </article>
 

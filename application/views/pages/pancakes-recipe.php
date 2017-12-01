@@ -2,7 +2,7 @@
 
     <h2>Pancakes</h2>
 
-    <img src="img/pancakes.jpg" alt="A serving suggestion for the pancakes recipe" class="recipe-img">
+    <img src="<?php echo asset_url();?>img/pancakes.jpg" alt="A serving suggestion for the pancakes recipe" class="recipe-img">
 
     <div class="ingredients">
         <h3>Ingredients</h3>

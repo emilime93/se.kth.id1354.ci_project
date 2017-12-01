@@ -1,9 +1,9 @@
 <head>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo asset_url();?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo asset_url();?>css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPacifico" rel="stylesheet">
 
-    <link rel="icon" href="<?=base_url()?>/favicon.ico" type="image/gif">
+    <link rel="icon" href="<?php echo asset_url()?>favicon.ico" type="image/gif">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -22,13 +22,9 @@
                     <h1>TASTY</h1>
                 </a>
                 <div class="user-area">
-                    <?php
-                        if (isset($_SESSION['logged-in-user'])) {
-                            include 'logged-in-header.php';
-                        } else {
-                            include 'logged-out-header.php';
-                        }
-                    ?>
+                    <a href="<?php echo base_url();?>users/register">
+                        <button id="login-button">Register</button>
+                    </a>
                 </div>
             </div>
         </header>
@@ -48,3 +44,7 @@
             </nav>
         </div>
         <main>
+            <!-- FLASH MESSAGES -->
+            <?php if ($this->session->flashdata('user_registered')): ?>
+                <?php echo '<p class="success">'.$this->session->flashdata('user_registered').'</p>';?>
+            <?php endif;?>
