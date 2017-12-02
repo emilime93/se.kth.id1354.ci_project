@@ -57,25 +57,25 @@
         <main>
             <!-- FLASH MESSAGES -->
             <?php if ($this->session->flashdata('user_registered')): ?>
-                <?php echo '<span class="success">'.$this->session->flashdata('user_registered').'</span>';?>
+                <?php echo '<div class="success center">'.$this->session->flashdata('user_registered').'</div>';?>
             <?php endif;?>
 
             <?php if ($this->session->flashdata('login_failed')): ?>
-                <?php echo '<span class="error">'.$this->session->flashdata('login_failed').'</span>';?>
+                <?php echo '<div class="error center">'.$this->session->flashdata('login_failed').'</div>';?>
             <?php endif;?>
 
             <?php if ($this->session->flashdata('user_logged_in')): ?>
-                <?php echo '<span class="success">'.$this->session->flashdata('user_logged_in').'</span>';?>
+                <?php echo '<div class="success center">'.$this->session->flashdata('user_logged_in').'</div>';?>
             <?php endif;?>
 
             <?php if ($this->session->flashdata('user_logged_out')): ?>
-                <?php echo '<span class="success">'.$this->session->flashdata('user_logged_out').'</span>';?>
+                <?php echo '<div class="success center">'.$this->session->flashdata('user_logged_out').'</div>';?>
             <?php endif;?>
 
             <?php if ($this->session->flashdata('comment_deleted')): ?>
-                <?php echo '<span class="success">'.$this->session->flashdata('comment_deleted').'</span>';?>
+                <?php echo '<div class="success center">'.$this->session->flashdata('comment_deleted').'</div>';?>
             <?php endif;?>
 
             <?php if ($this->session->flashdata('comment_delete_fail')): ?>
-                <?php echo '<span class="error">'.$this->session->flashdata('comment_delete_fail').'</span>';?>
+                <?php echo '<div class="error center">'.$this->session->flashdata('comment_delete_fail').'</div>';?>
             <?php endif;?>
