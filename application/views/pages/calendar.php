@@ -1,7 +1,7 @@
 <article class="main-article">
                     <h2>Calendar</h2>
 
-                    <div class="calendar">
+                    <div class="calendar clearfix">
                         <div class="label"><span>Mon</span></div>
                         <div class="label"><span>Tue</span></div>
                         <div class="label"><span>Wed</span></div>
@@ -15,7 +15,7 @@
                         <div class="day"><span class="number">3</span></div>
                         <div class="day"><span class="number">4</span></div>
                         <div class="day"><span class="number">5</span></div>
-                        <a href="meatballs-recipe.php">
+                        <a href=<?php echo base_url().'meatballs-recipe'?>>
                             <div class="day fotd-meatballs"><span class="number">6</span></div>
                         </a>
                         <div class="day"><span class="number">7</span></div>
@@ -25,7 +25,7 @@
                         <div class="day"><span class="number">11</span></div>
                         <div class="day"><span class="number">12</span></div>
                         <div class="day"><span class="number">13</span></div>
-                        <a href="pancakes-recipe.php">
+                        <a href=<?php echo base_url().'pancakes-recipe'?>>
                             <div class="day fotd-pancakes"><span class="number">14</span></div>
                         </a>
                         <div class="day"><span class="number">15</span></div>

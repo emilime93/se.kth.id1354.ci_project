@@ -32,9 +32,40 @@
 
     <div class="comments">
         <h3 id="comments">Comments</h3>
+
+        <?php if($this->session->userdata('logged_in')) :?>
+            <span class="required"><?php echo validation_errors(); ?></span>
+
+            <?php echo form_open('comments/create/'.strtolower($title));?>
+            <textarea id="comment-text-area" name="comment" rows="4" cols="50"></textarea>
+            <br>
+            <input id="submit-comment" type="submit" value="Send">
+            <?php echo form_close();?>
+
+        <?php endif;?>
+
         <?php
-        $_SESSION['recipe'] = basename($_SERVER['PHP_SELF'], "-recipe.php");
-        include 'fragments/comment-printer.php';
+        // PROBABLY REMOVE THIS
+        if (empty($comments)) {
+            echo "<p>Unfortunately there are no comments yet!</p>";
+        } else {
+            foreach ($comments as $comment): ?>
+                <div class="comment clearfix">
+                    <img src="<?php echo asset_url().'img/generic-avatar.png';?>" alt="A users avatar" class="profile-pic">
+                    <span class="user-name"><?php echo $comment->user;?></span>
+                    <br>
+                    <p><?php echo $comment->comment;?></p>
+                    <?php
+                    if ($comment->user == $this->session->userdata('username')): ?>
+                        <?php echo form_open('comments/delete_comment'); ?>
+                        <input type="hidden" name="id" value="<?php echo $comment->id;?>">
+                        <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
+                        <input type="submit" class="delete-comment" value="Delete">
+                        <?php echo form_close();?>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach;
+        }
         ?>
     </div>
 

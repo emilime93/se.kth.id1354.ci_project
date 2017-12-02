@@ -1,26 +1,27 @@
-<h2><? echo $title; ?></h2>
+<div class="login-area">
+    <h2><? echo $title; ?></h2>
 
-<?php echo validation_errors(); ?>
+    <span class="required"><?php echo validation_errors(); ?></span>
+    <?php echo form_open('users/register'); ?>
 
-<?php echo form_open('users/register'); ?>
+        <label for="username-field">Username
+            <span class="required">*</span>
+        </label>
+        <input type="text" id="username-field" name="username" placeholder="Username" autofocus required>
 
-    <label for="username-field">Username
-        <span class="required">*</span>
-    </label>
-    <input type="text" id="username-field" name="username" placeholder="Username">
+        <label for="password-field">Password
+            <span class="required">*</span>
+        </label>
+        <input id="password-field" type="password" name="password" placeholder="Password" required>
 
-    <label for="password-field">Password
-        <span class="required">*</span>
-    </label>
-    <input id="password-field" type="password" name="password" placeholder="Password">
+        <label for="password-field2">Repeat Password
+            <span class="required">*</span>
+        </label>
+        <input id="password-field2" type="password" name="passwordRepeat" placeholder="Password" required>
 
-    <label for="password-field2">Repeat Password
-        <span class="required">*</span>
-    </label>
-    <input id="password-field2" type="password" name="passwordRepeat" placeholder="Password">
+        <input id="submit-registration" type="submit" value="Register">
 
-    <input id="submit-login" type="submit" value="Register">
+    <?php echo form_close(); ?>
 
-<?php echo form_close(); ?>
-
-<p>The fields marked with <span class="required">*</span> are required.</p>
+    <p>The fields marked with <span class="required">*</span> are required.</p>
+</div>

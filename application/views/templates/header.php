@@ -22,9 +22,20 @@
                     <h1>TASTY</h1>
                 </a>
                 <div class="user-area">
-                    <a href="<?php echo base_url();?>users/register">
-                        <button id="login-button">Register</button>
+                    <?php if(!$this->session->userdata('logged_in')): ?>
+                        <a href="<?php echo base_url();?>users/register">
+                            <button id="login-button">Register</button>
+                        </a>
+                        <a href="<?php echo base_url();?>users/login">
+                            <button id="login-button">Log in</button>
+                        </a>
+                    <?php endif?>
+                    <?php if($this->session->userdata('logged_in')): ?>
+                        <p>Welcome back, <?php echo $this->session->userdata('username'); ?></p>
+                    <a href="<?php echo base_url();?>users/logout">
+                        <button id="login-button">Log Out</button>
                     </a>
+                    <?php endif?>
                 </div>
             </div>
         </header>
@@ -46,5 +57,25 @@
         <main>
             <!-- FLASH MESSAGES -->
             <?php if ($this->session->flashdata('user_registered')): ?>
-                <?php echo '<p class="success">'.$this->session->flashdata('user_registered').'</p>';?>
+                <?php echo '<span class="success">'.$this->session->flashdata('user_registered').'</span>';?>
+            <?php endif;?>
+
+            <?php if ($this->session->flashdata('login_failed')): ?>
+                <?php echo '<span class="error">'.$this->session->flashdata('login_failed').'</span>';?>
+            <?php endif;?>
+
+            <?php if ($this->session->flashdata('user_logged_in')): ?>
+                <?php echo '<span class="success">'.$this->session->flashdata('user_logged_in').'</span>';?>
+            <?php endif;?>
+
+            <?php if ($this->session->flashdata('user_logged_out')): ?>
+                <?php echo '<span class="success">'.$this->session->flashdata('user_logged_out').'</span>';?>
+            <?php endif;?>
+
+            <?php if ($this->session->flashdata('comment_deleted')): ?>
+                <?php echo '<span class="success">'.$this->session->flashdata('comment_deleted').'</span>';?>
+            <?php endif;?>
+
+            <?php if ($this->session->flashdata('comment_delete_fail')): ?>
+                <?php echo '<span class="error">'.$this->session->flashdata('comment_delete_fail').'</span>';?>
             <?php endif;?>
