@@ -3,7 +3,9 @@ class Comments extends CI_Controller {
 
     // Create a comment
     public function create($recipe) {
-        $comment = htmlspecialchars($this->input->post('comment'));
+        // Anti XXS
+        $comment = $this->security->xss_clean($this->input->post('comment'));
+        $comment = htmlspecialchars($comment);
         $user = $this->session->userdata('username');
         $data['title'] = ucfirst($recipe);
 
@@ -25,6 +27,13 @@ class Comments extends CI_Controller {
 
     public function delete_comment() {
         $comment_id = $this->input->post('id');
+
+        // Input filtering
+        if (!ctype_digit($comment_id)) {
+            $this->session->set_flashdata('comment_delete_fail', 'Comment couldn\'t be deleted');
+        }
+
+        // Try to delete the comment
         if ($this->comment_model->delete_comment($comment_id)) {
             $this->session->set_flashdata('comment_deleted', 'Comment successfully deleted!');
         } else {

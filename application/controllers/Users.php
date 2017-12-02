@@ -6,9 +6,9 @@ class Users extends CI_Controller {
     public function register() {
         $data['title'] = 'Sign Up';
 
-        $this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('passwordRepeat', 'Repeated Password', 'required|matches[password]');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean|callback_check_username_exists');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|xss_clean');
+        $this->form_validation->set_rules('passwordRepeat', 'Repeated Password', 'required|trim|xss_clean|matches[password]');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header', $data);
@@ -42,8 +42,8 @@ class Users extends CI_Controller {
     public function login() {
         $data['title'] = 'Log In';
 
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|xss_clean');
+        $this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header', $data);
