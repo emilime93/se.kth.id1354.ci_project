@@ -11,7 +11,7 @@
 </article>
 
 <article class="home-article">
-    <h2>The home of recipes</h2>
+    <h2>The home of recipes!</h2>
     <p>
         <em>Welcome!</em> This site is your best source for jummy
         recipes! Under "Recipes" you will find everything you could ever need!
