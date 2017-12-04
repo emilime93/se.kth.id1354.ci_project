@@ -6,6 +6,7 @@ class Comments extends CI_Controller {
         // Anti XXS
         $comment = $this->security->xss_clean($this->input->post('comment'));
         $comment = htmlspecialchars($comment);
+
         $user = $this->session->userdata('username');
         $data['title'] = ucfirst($recipe);
 
@@ -27,6 +28,7 @@ class Comments extends CI_Controller {
 
     public function delete_comment() {
         $comment_id = $this->input->post('id');
+        $comment_id = $data = $this->security->xss_clean($comment_id);
 
         // Input filtering
         if (!ctype_digit($comment_id)) {
