@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="<?php echo asset_url();?>css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPacifico" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link rel="icon" href="<?php echo asset_url()?>favicon.ico" type="image/gif">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
