@@ -36,5 +36,7 @@
 ehthumbs.db
 Thumbs.db
 
-# Intellij IDEAs #
+# My Own Preferences #
 *.idea
+node_modules
+package-lock.json

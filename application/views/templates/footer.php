@@ -9,6 +9,7 @@
         </footer>
 
         <script src="<?php echo asset_url()?>scripts/people-script.js"></script>
+        <script src="<?php echo asset_url()?>scripts/jquery.js"></script>
 
     </body>
 </html>

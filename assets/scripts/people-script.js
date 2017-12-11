@@ -11,6 +11,7 @@ xhttp.send();
 
 
 //  ENABLE THIS IF UNSURE OF JQUERY WOKRS
+/*
 window.onload = function() {
     if (window.jQuery) {
         // jQuery is loaded
@@ -20,3 +21,4 @@ window.onload = function() {
         alert("jQuery doesn't Work");
     }
 }
+*/
