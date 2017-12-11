@@ -8,17 +8,7 @@
             </p>
         </footer>
 
-        <script>
-        window.onload = function() {
-            if (window.jQuery) {
-                // jQuery is loaded
-                alert("jQuery works!");
-            } else {
-                // jQuery is not loaded
-                alert("Doesn't Work");
-            }
-        }
-        </script>
+        <script src="<?php echo asset_url()?>scripts/people-script.js"></script>
 
     </body>
 </html>
