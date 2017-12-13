@@ -42,8 +42,10 @@
 
         <?php endif;?>
 
+        <script src="<?php echo asset_url(); ?>scripts/comments.js">
+
+        
         <?php
-            // PROBABLY REMOVE THIS
             if (empty($comments)) {
                 echo "<p>Unfortunately there are no comments yet!</p>";
             } else {
@@ -53,12 +55,13 @@
                         <span class="user-name"><?php echo $comment->user;?></span>
                         <br>
                         <p><?php echo $comment->comment;?></p>
-                        <?php
-                        if ($comment->user == $this->session->userdata('username')): ?>
+                        <?php if ($comment->user == $this->session->userdata('username')): ?>
+                        // To give the form a ID
+                        <?php $attributes = array("id" => "delete-form") ?>
                             <?php echo form_open('comments/delete_comment'); ?>
                                 <input type="hidden" name="id" value="<?php echo $comment->id;?>">
                                 <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
-                                <input type="submit" class="delete-comment" value="Delete">
+                                <input id="delete-button" type="submit" class="delete-comment" value="Delete">
                             <?php echo form_close();?>
                         <?php endif; ?>
                     </div>
