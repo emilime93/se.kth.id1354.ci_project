@@ -34,15 +34,19 @@
         <?php if($this->session->userdata('logged_in')) :?>
             <span class="required"><?php echo validation_errors(); ?></span>
 
-            <?php echo form_open('comments/create/'.strtolower($title));?>
+            <?php $create_attributes = array("id" => "create-comment-form") ?>
+            <?php echo form_open('comments/create/'.strtolower($title), $create_attributes);?>
                 <textarea id="comment-text-area" name="comment" rows="4" cols="50"></textarea>
+                <input type="hidden" name="token-name" value="<?php echo $this->security->get_csrf_token_name(); ?>">
+                <input type="hidden" name="token-value" value="<?php echo $this->security->get_csrf_hash(); ?>">
                 <br>
                 <input id="submit-comment" type="submit" value="Send">
             <?php echo form_close();?>
 
         <?php endif;?>
 
-        <script src="<?php echo asset_url(); ?>scripts/comments.js">
+
+        <script src="<?php echo asset_url(); ?>scripts/comments.php" async>
 
         
         <?php
@@ -57,8 +61,8 @@
                         <p><?php echo $comment->comment;?></p>
                         <?php if ($comment->user == $this->session->userdata('username')): ?>
                         // To give the form a ID
-                        <?php $attributes = array("id" => "delete-form") ?>
-                            <?php echo form_open('comments/delete_comment'); ?>
+                        <?php $delete_attributes = array("id" => "delete-form") ?>
+                            <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
                                 <input type="hidden" name="id" value="<?php echo $comment->id;?>">
                                 <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
                                 <input id="delete-button" type="submit" class="delete-comment" value="Delete">
