@@ -13,17 +13,21 @@ class Comments extends CI_Controller {
         $this->form_validation->set_rules('comment', 'Comment', 'required|trim|xss_clean');
 
         if ($this->form_validation->run() === FALSE) {
+            // The input was faulty
             $this->load->view('templates/header', $data);
             $this->load->view('pages/'.$recipe, $data);
             $this->load->view('templates/footer');
         } else {
+            // The input was ok
             $this->comment_model->create_comment($user, $comment, $recipe);
             $data['comments'] = $this->comment_model->get_comments($recipe);
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/'.$recipe, $data);
-            $this->load->view('templates/footer');
+            redirect("$recipe");
         }
+    }
+
+    public function getComments($recipe) {
+        //TODO
     }
 
     public function delete_comment() {
