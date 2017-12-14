@@ -46,9 +46,11 @@
         <?php endif;?>
 
 
-        <script src="<?php echo asset_url(); ?>scripts/comments.php" async>
+        <script src="<?php echo asset_url(); ?>scripts/submit_comment.php" async>
 
-        
+        <script src="<?php ?>scripts/display_comments.js"></script>
+
+
         <?php
             if (empty($comments)) {
                 echo "<p>Unfortunately there are no comments yet!</p>";
@@ -60,7 +62,6 @@
                         <br>
                         <p><?php echo $comment->comment;?></p>
                         <?php if ($comment->user == $this->session->userdata('username')): ?>
-                        // To give the form a ID
                         <?php $delete_attributes = array("id" => "delete-form") ?>
                             <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
                                 <input type="hidden" name="id" value="<?php echo $comment->id;?>">
