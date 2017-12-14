@@ -1,0 +1,11 @@
+Help to quickly create the databases in mysql without needing to change anything
+
+First create database "ci_tasty_recipes"
+
+___COMMENT___
+
+CREATE TABLE `ci_tasty_recipes`.`comment` ( `id` INT NOT NULL AUTO_INCREMENT , `user` VARCHAR(255) NOT NULL , `comment` TEXT NOT NULL , `recipe` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+___USER___
+
+CREATE TABLE `ci_tasty_recipes`.`user` ( `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , UNIQUE (`username`)) ENGINE = InnoDB;
