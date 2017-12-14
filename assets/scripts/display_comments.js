@@ -2,25 +2,27 @@
 displayComments()
 
 function displayComments() {
-    $("div.comments").empty();
+    // $("div.comment").hide('fast', function(){ this.remove(); });
     var user = $("#display-comments-data input[name='logged-in-user']").attr('value');
     var recipe = $("#display-comments-data input[name='recipe']").attr('value');
     var targetUrl = $("#display-comments-data").attr('action');
     var baseUrl = $("#display-comments-data input[name='base-url']").attr('value');
-
-    // console.log(baseUrl);
-    // console.log(user);
-    // console.log(recipe);
-    // console.log(targetUrl);
 
     $.ajax({
         type: "GET",
         url: targetUrl,
         dataType: "json",
         success: function (response) {
+            // If there are no comments
+            if(response.length == 0) {
+                $("div.comments").append('<p>Unfortunately there are no comments yet!</p>');
+                return;
+            }
+            $("div.comment").remove();
+            $(".comments>p").remove();
             $.map(response, function(comment, i) {
                 var text = '<div class="comment clearfix">';
-                text += '<img src="http://localhost/tasty/assets/img/generic-avatar.png" alt="A users avatar" class="profile-pic">';
+                text += '<img src="' + baseUrl + 'assets/img/generic-avatar.png" alt="A users avatar" class="profile-pic">';
                 text += '<span class="user-name">' + comment.user + '</span>';
                 text += "<br>";
                 text += "<p>" + comment.comment + "</p>";
