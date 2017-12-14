@@ -34,39 +34,27 @@
         <h3 id="comments">Comments</h3>
 
         <?php if($this->session->userdata('logged_in')) :?>
-            <span class="required"><?php echo validation_errors(); ?></span>
+        <span class="required"><?php echo validation_errors(); ?></span>
 
-            <?php echo form_open('comments/create/'.strtolower($title));?>
+        <?php $create_attributes = array("id" => "create-comment-form"); ?>
+        <?php echo form_open('comments/create/'.strtolower($title), $create_attributes);?>
             <textarea id="comment-text-area" name="comment" rows="4" cols="50"></textarea>
             <br>
             <input id="submit-comment" type="submit" value="Send">
-            <?php echo form_close();?>
+        <?php echo form_close();?>
 
-        <?php endif;?>
+    <?php endif;?>
 
-        <?php
-        // PROBABLY REMOVE THIS
-        if (empty($comments)) {
-            echo "<p>Unfortunately there are no comments yet!</p>";
-        } else {
-            foreach ($comments as $comment): ?>
-                <div class="comment clearfix">
-                    <img src="<?php echo asset_url().'img/generic-avatar.png';?>" alt="A users avatar" class="profile-pic">
-                    <span class="user-name"><?php echo $comment->user;?></span>
-                    <br>
-                    <p><?php echo $comment->comment;?></p>
-                    <?php
-                    if ($comment->user == $this->session->userdata('username')): ?>
-                        <?php echo form_open('comments/delete_comment'); ?>
-                        <input type="hidden" name="id" value="<?php echo $comment->id;?>">
-                        <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
-                        <input type="submit" class="delete-comment" value="Delete">
-                        <?php echo form_close();?>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach;
-        }
-        ?>
+    <!-- This form is to be able to get data. It's an ugly solution and most probably not the
+    way to go. Bud had to be done in order to make it work in time... SHAME! -->
+    <?php $create_attributes = array("id" => "display-comments-data"); ?>
+    <?php echo form_open('comments/getcomments/'.strtolower($title), $create_attributes);?>
+        <input type="hidden" name="logged-in-user" value="<?php echo $this->session->userdata('username');?>">
+        <input type="hidden" name="recipe" value="<?php echo strtolower($title)?>">
+        <input type="hidden" name="base-url" value="<?php echo base_url()?>">
+    <?php echo form_close(); ?>
+
+    <script src="<?php echo asset_url(); ?>scripts/comments.js" async></script>
     </div>
 
 </article>
