@@ -34,11 +34,9 @@
         <?php if($this->session->userdata('logged_in')) :?>
             <span class="required"><?php echo validation_errors(); ?></span>
 
-            <?php $create_attributes = array("id" => "create-comment-form") ?>
+            <?php $create_attributes = array("id" => "create-comment-form"); ?>
             <?php echo form_open('comments/create/'.strtolower($title), $create_attributes);?>
                 <textarea id="comment-text-area" name="comment" rows="4" cols="50"></textarea>
-                <input type="hidden" name="token-name" value="<?php echo $this->security->get_csrf_token_name(); ?>">
-                <input type="hidden" name="token-value" value="<?php echo $this->security->get_csrf_hash(); ?>">
                 <br>
                 <input id="submit-comment" type="submit" value="Send">
             <?php echo form_close();?>
@@ -46,33 +44,37 @@
         <?php endif;?>
 
 
-        <script src="<?php echo asset_url(); ?>scripts/submit_comment.php" async>
+        <script src="<?php echo asset_url(); ?>scripts/submit_comment.js" async></script>
 
-        <script src="<?php ?>scripts/display_comments.js"></script>
+        <div class="comment clearfix"></div>
+        
+        <p type="hidden"> aassasadas</p>
+        <script src="<?php echo asset_url(); ?>scripts/display_comments.js" async></script>
 
-
-        <?php
-            if (empty($comments)) {
-                echo "<p>Unfortunately there are no comments yet!</p>";
-            } else {
-                foreach ($comments as $comment): ?>
-                    <div class="comment clearfix">
-                        <img src="<?php echo asset_url().'img/generic-avatar.png';?>" alt="A users avatar" class="profile-pic">
-                        <span class="user-name"><?php echo $comment->user;?></span>
-                        <br>
-                        <p><?php echo $comment->comment;?></p>
-                        <?php if ($comment->user == $this->session->userdata('username')): ?>
-                        <?php $delete_attributes = array("id" => "delete-form") ?>
-                            <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
-                                <input type="hidden" name="id" value="<?php echo $comment->id;?>">
-                                <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
-                                <input id="delete-button" type="submit" class="delete-comment" value="Delete">
-                            <?php echo form_close();?>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach;
-            }
-        ?>
+        <?php /* COMMENTED THIS AWAY TO BE ABLE TO WORK PEACEFULLY
+            <?php
+                if (empty($comments)) {
+                    echo "<p>Unfortunately there are no comments yet!</p>";
+                } else {
+                    foreach ($comments as $comment): ?>
+                        <div class="comment clearfix">
+                            <img src="<?php echo asset_url().'img/generic-avatar.png';?>" alt="A users avatar" class="profile-pic">
+                            <span class="user-name"><?php echo $comment->user;?></span>
+                            <br>
+                            <p><?php echo $comment->comment;?></p>
+                            <?php if ($comment->user == $this->session->userdata('username')): ?>
+                            <?php $delete_attributes = array("id" => "delete-form") ?>
+                                <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
+                                    <input type="hidden" name="id" value="<?php echo $comment->id;?>">
+                                    <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
+                                    <input id="delete-button" type="submit" class="delete-comment" value="Delete">
+                                <?php echo form_close();?>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach;
+                }
+            ?>
+        */?>
     </div>
 
 </article>

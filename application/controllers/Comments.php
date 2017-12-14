@@ -14,20 +14,19 @@ class Comments extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE) {
             // The input was faulty
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/'.$recipe, $data);
-            $this->load->view('templates/footer');
+            echo false;
         } else {
             // The input was ok
             $this->comment_model->create_comment($user, $comment, $recipe);
             $data['comments'] = $this->comment_model->get_comments($recipe);
 
-            redirect("$recipe");
+            echo true;
         }
     }
 
     public function getComments($recipe) {
-        //TODO
+        $comments = $this->comment_model->get_comments($recipe);
+        return json_encode($comments);
     }
 
     public function delete_comment() {
