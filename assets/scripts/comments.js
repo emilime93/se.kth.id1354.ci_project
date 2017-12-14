@@ -1,7 +1,19 @@
-displayComments();
+function deleteHandeler(e) {
+    e.preventDefault();
+    var targetUrl = $($(e.target).parent()).attr('action');
+    var formData = $($(e.target).parent()).serialize();
 
-//This file is successfully connected to the meatballs page for now.    
-$('#submit-comment').click(submitHandeler);
+    console.log(targetUrl);
+    console.log(formData);
+
+    $.post(targetUrl, formData).done(function(data) {
+            if (data == true) {
+                displayComments();
+            } else {
+                $('.comments').prepend('<p style="color:red">Unable to delete comment</p>');
+            }
+    });
+}
 
 function submitHandeler(e) {
     e.preventDefault();
@@ -11,7 +23,7 @@ function submitHandeler(e) {
 
     $.post(targetUrl, formData).done(function(data) {
         // If the DB insertion was successfull
-        if(data == true) {
+        if (data == true) {
             console.log("saved");
             $('#comment-text-area').val('');
             displayComments();
@@ -50,7 +62,7 @@ function displayComments() {
                 
                 // If the logged in user is the author
                 if (comment.user == user){
-                    text += '<form method="post" action="' + baseUrl + 'comments/delete_comment">';
+                    text += '<form action="' + baseUrl + 'comments/delete_comment">';
                     text += '<input type="hidden" name="id" value="' + comment.id + '">';
                     text += '<input type="hidden" name="recipe" value="' + comment.recipe + '">';
                     text += '<input type="submit" class="delete-comment" value="Delete">';
@@ -62,3 +74,10 @@ function displayComments() {
         },
     });
 }
+
+
+displayComments();
+$(document).ready(function () {
+    $(document).on('click', '#submit-comment', submitHandeler);
+    $(document).on('click', '.delete-comment', deleteHandeler);
+});

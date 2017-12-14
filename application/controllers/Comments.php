@@ -35,15 +35,19 @@ class Comments extends CI_Controller {
 
         // Input filtering
         if (!ctype_digit($comment_id)) {
-            $this->session->set_flashdata('comment_delete_fail', 'Comment couldn\'t be deleted');
+            echo false;
+            return;
+            // $this->session->set_flashdata('comment_delete_fail', 'Comment couldn\'t be deleted');
         }
 
         // Try to delete the comment
         if ($this->comment_model->delete_comment($comment_id)) {
-            $this->session->set_flashdata('comment_deleted', 'Comment successfully deleted!');
+            echo true;
+            // $this->session->set_flashdata('comment_deleted', 'Comment successfully deleted!');
         } else {
-            $this->session->set_flashdata('comment_delete_fail', 'Comment couldn\'t be deleted');
+            echo false;
+            // $this->session->set_flashdata('comment_delete_fail', 'Comment couldn\'t be deleted');
         }
-        redirect($this->input->post('recipe'));
+        // redirect($this->input->post('recipe'));
     }
 }
