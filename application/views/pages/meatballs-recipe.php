@@ -53,31 +53,6 @@
         <?php echo form_close(); ?>
 
         <script src="<?php echo asset_url(); ?>scripts/comments.js" async></script>
-
-        <?php /* COMMENTED THIS AWAY TO BE ABLE TO WORK PEACEFULLY
-            <?php
-                if (empty($comments)) {
-                    echo "<p>Unfortunately there are no comments yet!</p>";
-                } else {
-                    foreach ($comments as $comment): ?>
-                        <div class="comment clearfix">
-                            <img src="<?php echo asset_url().'img/generic-avatar.png';?>" alt="A users avatar" class="profile-pic">
-                            <span class="user-name"><?php echo $comment->user;?></span>
-                            <br>
-                            <p><?php echo $comment->comment;?></p>
-                            <?php if ($comment->user == $this->session->userdata('username')): ?>
-                                <?php $delete_attributes = array("id" => "delete-form") ?>
-                                <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
-                                    <input type="hidden" name="id" value="<?php echo $comment->id;?>">
-                                    <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
-                                    <input id="delete-button" type="submit" class="delete-comment" value="Delete">
-                                <?php echo form_close();?>
-                            <?php endif; ?>
-                        </div>
-                    <?php endforeach;
-                }
-            ?>
-        */?>
     </div>
 
 </article>

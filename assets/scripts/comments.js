@@ -35,7 +35,6 @@ function submitHandeler(e) {
 }
 
 function displayComments() {
-    // $("div.comment").hide('fast', function(){ this.remove(); });
     var user = $("#display-comments-data input[name='logged-in-user']").attr('value');
     var recipe = $("#display-comments-data input[name='recipe']").attr('value');
     var targetUrl = $("#display-comments-data").attr('action');
