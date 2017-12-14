@@ -26,7 +26,7 @@ class Comments extends CI_Controller {
 
     public function getComments($recipe) {
         $comments = $this->comment_model->get_comments($recipe);
-        return json_encode($comments);
+        echo json_encode($comments);
     }
 
     public function delete_comment() {

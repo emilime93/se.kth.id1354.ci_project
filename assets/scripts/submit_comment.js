@@ -1,5 +1,7 @@
 //This file is successfully connected to the meatballs page for now.    
-$('#submit-comment').click(function(e) {
+$('#submit-comment').click(submitHandeler);
+
+function submitHandeler(e) {
     e.preventDefault();
 
     var formData = $('#create-comment-form').serialize();
@@ -10,9 +12,10 @@ $('#submit-comment').click(function(e) {
         if(data == true) {
             console.log("saved");
             $('#comment-text-area').val('');
+            displayComments();
         } else { // If the DB insertion failed
             console.log(data);
         }
     });
     
-});
+}

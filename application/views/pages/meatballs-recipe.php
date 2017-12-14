@@ -43,13 +43,17 @@
 
         <?php endif;?>
 
+        <!-- This form is to be able to get data. It's an ugly solution and most probably not the
+        way to go. Bud had to be done in order to make it work in time... SHAME! -->
+        <?php $create_attributes = array("id" => "display-comments-data"); ?>
+        <?php echo form_open('comments/getcomments/'.strtolower($title), $create_attributes);?>
+            <input type="hidden" name="logged-in-user" value="<?php echo $this->session->userdata('username');?>">
+            <input type="hidden" name="recipe" value="<?php echo strtolower($title)?>">
+            <input type="hidden" name="base-url" value="<?php echo base_url()?>">
+        <?php echo form_close(); ?>
 
-        <script src="<?php echo asset_url(); ?>scripts/submit_comment.js" async></script>
-
-        <div class="comment clearfix"></div>
-        
-        <p type="hidden"> aassasadas</p>
         <script src="<?php echo asset_url(); ?>scripts/display_comments.js" async></script>
+        <script src="<?php echo asset_url(); ?>scripts/submit_comment.js" async></script>
 
         <?php /* COMMENTED THIS AWAY TO BE ABLE TO WORK PEACEFULLY
             <?php
@@ -63,7 +67,7 @@
                             <br>
                             <p><?php echo $comment->comment;?></p>
                             <?php if ($comment->user == $this->session->userdata('username')): ?>
-                            <?php $delete_attributes = array("id" => "delete-form") ?>
+                                <?php $delete_attributes = array("id" => "delete-form") ?>
                                 <?php echo form_open('comments/delete_comment', $delete_attributes); ?>
                                     <input type="hidden" name="id" value="<?php echo $comment->id;?>">
                                     <input type="hidden" name="recipe" value="<?php echo strtolower($title);?>">
