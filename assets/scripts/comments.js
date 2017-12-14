@@ -3,9 +3,6 @@ function deleteHandeler(e) {
     var targetUrl = $($(e.target).parent()).attr('action');
     var formData = $($(e.target).parent()).serialize();
 
-    console.log(targetUrl);
-    console.log(formData);
-
     $.post(targetUrl, formData).done(function(data) {
             if (data == true) {
                 displayComments();
@@ -24,11 +21,10 @@ function submitHandeler(e) {
     $.post(targetUrl, formData).done(function(data) {
         // If the DB insertion was successfull
         if (data == true) {
-            console.log("saved");
             $('#comment-text-area').val('');
             displayComments();
         } else { // If the DB insertion failed
-            console.log(data);
+            $('.comments').prepend('<p style="color:red">Unable to submit comment</p>');
         }
     });
     
@@ -48,7 +44,6 @@ function displayComments() {
             // If there are no comments
             if(response.length == 0) {
                 $("div.comments").append('<p>Unfortunately there are no comments yet!</p>');
-                return;
             }
             $("div.comment").remove();
             $(".comments>p").remove();
