@@ -52,8 +52,7 @@
             <input type="hidden" name="base-url" value="<?php echo base_url()?>">
         <?php echo form_close(); ?>
 
-        <script src="<?php echo asset_url(); ?>scripts/display_comments.js" async></script>
-        <script src="<?php echo asset_url(); ?>scripts/submit_comment.js" async></script>
+        <script src="<?php echo asset_url(); ?>scripts/comments.js" async></script>
 
         <?php /* COMMENTED THIS AWAY TO BE ABLE TO WORK PEACEFULLY
             <?php
