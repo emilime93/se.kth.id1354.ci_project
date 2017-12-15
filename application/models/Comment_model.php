@@ -15,11 +15,7 @@ class Comment_model extends CI_Model {
     public function delete_comment($id) {
         $this->db->where('id', $id);
         $result = $this->db->get('comment');
-        /*
-        $query = $this->db->get_where('comment', array(
-            'id' => $id
-        ));
-        $result = $query->result();*/
+        
         if ($result->num_rows() == 1) {
             if ($result->row(0)->user == $this->session->userdata['username']) {
                 //Delete the comment
